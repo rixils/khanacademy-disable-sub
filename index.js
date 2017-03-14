@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        khanacademy-disable-sub
 // @description disable youtube subs by default
-// @namespace   https://www.khanacademy.org/
+// @namespace   https://gitlab.com/zalent/khanacademy-disable-sub
 // @include     https://www.khanacademy.org/*
 // @version     0.1.0.1
 // @author      liartuw
