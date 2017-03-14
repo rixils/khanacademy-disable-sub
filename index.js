@@ -7,8 +7,8 @@
 // @author      liartuw
 // @run-at      document-end
 // @grant       none
-// @downloadURL https://gitlab.com/zalent/khanacademy-disable-subs/blob/master/index.js
-// @updateURL   https://gitlab.com/zalent/khanacademy-disable-subs/blob/master/index.js
+// @downloadURL https://gitlab.com/zalent/khanacademy-disable-sub/raw/master/index.js
+// @updateURL   https://gitlab.com/zalent/khanacademy-disable-sub/raw/master/index.js
 // ==/UserScript==
 (() => {
     addOnChangeEventListenerTo(document.body, () => {
