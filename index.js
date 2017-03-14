@@ -3,7 +3,7 @@
 // @description disable youtube subs by default
 // @namespace   https://gitlab.com/zalent/khanacademy-disable-sub
 // @include     https://www.khanacademy.org/*
-// @version     0.1.0.2
+// @version     0.1.0.3
 // @author      liartuw
 // @run-at      document-end
 // @grant       none
@@ -44,7 +44,7 @@
         if (isSubEnabled) {
             let srcUrlWithSubDisabled = playerIframe.src.replace(
                 SUB_ENABLED_URL_PARAM,
-                SUB_DISABLED_URL_PARAM,
+                SUB_DISABLED_URL_PARAM
             );
             playerIframe.src = srcUrlWithSubDisabled;
         }
