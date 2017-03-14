@@ -3,7 +3,7 @@
 // @description disable youtube subs by default
 // @namespace   https://gitlab.com/zalent/khanacademy-disable-sub
 // @include     https://www.khanacademy.org/*
-// @version     0.1.0.1
+// @version     0.1.0.2
 // @author      liartuw
 // @run-at      document-end
 // @grant       none
@@ -12,8 +12,8 @@
 // ==/UserScript==
 (() => {
     addOnChangeEventListenerTo(document.body, () => {
-        if (isYoutubePlayerLoaded()) {
-            disableYoutubeSubtitles();
+        if (isVideoPlayerLoaded()) {
+            disableVideoPlayerSubtitles();
         }
     });
 
@@ -32,30 +32,31 @@
     }
 
 
-    function isYoutubePlayerLoaded() {
-        let playerContainer = document.querySelector(PLAYER_CONTAINER_SELECTOR);
-        let isPlayerLoaded = playerContainer !== null;
-        return isPlayerLoaded;
+    function isVideoPlayerLoaded() {
+        let playerContainer = getVideoPlayerContainer();
+        return playerContainer !== null;
     }
 
 
-    function disableYoutubeSubtitles() {
-        let iframe = getYoutubePlayerIframe();
-        let isSubEnabled = iframe.src.includes(SUB_ENABLED_PARAM);
+    function disableVideoPlayerSubtitles() {
+        let playerIframe = getVideoPlayerContainer().firstChild;
+        let isSubEnabled = playerIframe.src.includes(SUB_ENABLED_URL_PARAM);
         if (isSubEnabled) {
-            let srcWithoutSub = iframe.src.replace(SUB_ENABLED_PARAM, SUB_DISABLED_PARAM);
-            iframe.src = srcWithoutSub;
+            let srcUrlWithSubDisabled = playerIframe.src.replace(
+                SUB_ENABLED_URL_PARAM,
+                SUB_DISABLED_URL_PARAM,
+            );
+            playerIframe.src = srcUrlWithSubDisabled;
         }
     }
 
 
-    function getYoutubePlayerIframe() {
-        let iframeContainer = document.querySelector(PLAYER_CONTAINER_SELECTOR);
-        return iframeContainer.firstChild;
+    function getVideoPlayerContainer() {
+        return document.querySelector(PLAYER_CONTAINER_SELECTOR);
     }
 
 
     const PLAYER_CONTAINER_SELECTOR = '.ka-video-player-container';
-    const SUB_ENABLED_PARAM = 'cc_load_policy=1';
-    const SUB_DISABLED_PARAM = 'cc_load_policy=0';
+    const SUB_ENABLED_URL_PARAM = 'cc_load_policy=1';
+    const SUB_DISABLED_URL_PARAM = 'cc_load_policy=0';
 })();
