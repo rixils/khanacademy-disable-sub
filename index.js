@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name        khanacademy-disable-subs
+// @name        khanacademy-disable-sub
 // @description disable youtube subs by default
 // @namespace   https://www.khanacademy.org/
 // @include     https://www.khanacademy.org/*
