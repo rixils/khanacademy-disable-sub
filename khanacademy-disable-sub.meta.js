@@ -4,7 +4,7 @@
 // @namespace https://gitlab.com/zalent
 // @homepageURL https://gitlab.com/zalent/khanacademy-disable-sub
 // @include https://www.khanacademy.org/*
-// @version 0.1.0.4
+// @version 0.1.0.5
 // @license MIT
 // @author rixils
 // @run-at document-end
